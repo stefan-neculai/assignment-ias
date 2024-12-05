@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { getCardLists } from './actions';
 import { ICardList } from '@/model/cardlist';
-import { useParams } from 'next/navigation';
 import { IBoard } from '@/model/board';
 import { getBoard } from '../../actions';
 import Board from '@/app/components/Board';

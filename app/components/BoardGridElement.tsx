@@ -8,18 +8,7 @@ interface BoardGridElementProps {
     handleEditBoard: (id: string, name: string) => void;
 }
 
-const getRandomColor = () => {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-};
-
 const BoardGridElement: React.FC<BoardGridElementProps> = ({ board, handleDeleteBoard, handleEditBoard }) => {
-    const backgroundColor = getRandomColor();
-    const [isHover, setIsHover] = React.useState(false);
     const [isEditing, setIsEditing] = React.useState(false);
     const [newName, setNewName] = React.useState(board.name);
 
@@ -40,8 +29,7 @@ const BoardGridElement: React.FC<BoardGridElementProps> = ({ board, handleDelete
     }
 
     return (
-        <div className="w-64 h-36 flex items-center justify-center flex-col gap-2 font-sans font-semibold bg-slate-200 rounded" onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}>
+        <div className="w-64 h-36 flex items-center justify-center flex-col gap-2 font-sans font-semibold bg-slate-200 rounded">
             {!isEditing && <Link href={`/board/${board._id}`}><h1 className='font-medium text-2xl'>{board.name}</h1></Link>}
             {isEditing && <input type="text" value={newName} onChange={(e) => setNewName(e.target.value)} onKeyDown={handleKeyPress} className="bg-slate-300 border p-2 rounded"/>}
             <div className="flex gap-2">

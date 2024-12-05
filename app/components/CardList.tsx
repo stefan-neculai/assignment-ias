@@ -83,7 +83,7 @@ const CardList: React.FC<CardListProps> = ({ cardList, handleDeleteCardList, han
             </div>
             
             {cardList.cards.map(card => (
-                <Card key={card._id} title={card.title} description={card.description} onClick={() => setModalCard(card)}
+                <Card key={card._id} title={card.title} onClick={() => setModalCard(card)}
                     />
             ))}
             

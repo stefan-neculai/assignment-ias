@@ -5,9 +5,7 @@ import { ICardList } from '@/model/cardlist';
 import { IBoard } from '@/model/board';
 import CardList from './CardList';
 import { useParams } from 'next/navigation';
-import { getBoard } from '../actions';
 import { getCardLists, deleteCardList, updateCardList, createCardList, createCard, deleteCard, updateCard } from '../board/[boardId]/actions';
-import { ICard } from '@/model/cardlist';
 import posthog from 'posthog-js';
 
 interface BoardProps {

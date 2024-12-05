@@ -1,8 +1,6 @@
 "use server";
 import connectMongo from "@/db/mongoose";
-import ToDo, { Todo } from "@/model/todo";
 import { Types } from "mongoose";
-import Board, { IBoard as BoardType } from "@/model/board";
 import CardList, {ICard, ICardList} from "@/model/cardlist";
 
 export async function getCardLists(boardId: string): Promise<ICardList[]> {
