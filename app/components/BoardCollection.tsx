@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { createBoard, getBoards, deleteBoard, updateBoard } from '../actions';
 import { IBoard } from '@/model/board';
@@ -40,6 +40,10 @@ const BoardCollection: React.FC<BoardCollectionProps> = ({initialBoards}) => {
             handleAddBoard()
         }
     }
+
+    useEffect(() => {
+        posthog.capture('view_boards');
+    }, []);
 
     return (
         <div className="flex flex-col gap-5 justify-start items-start">
